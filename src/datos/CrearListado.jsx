@@ -1,17 +1,20 @@
-import data from "./data"
-import Destino from "../paginas/Destino"
+import data from "./data";
+import Destino from "../paginas/Destino";
 
-const CrearListado = ({zona}) => {
+const CrearListado = ({ zona }) => {
+  const listado = data.filter((destino) => destino.zona === zona);
+  console.log(listado);
+  const contraseña = "1234";
 
-  const listado=data.filter(destino=>destino.zona===zona)
-  
   return (
     <div>
       <section className="lista">
-        {listado.map(dato=>(<Destino key={dato.nombre}{...dato}></Destino>))}
+        {listado.map((dato) => (
+          <Destino key={dato.nombre} {...dato}></Destino>
+        ))}
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default CrearListado
+export default CrearListado;
